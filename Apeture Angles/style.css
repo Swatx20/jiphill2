@@ -1,0 +1,144 @@
+/* Aperture & Angles Stylesheet */
+
+body {
+    background: linear-gradient(to bottom, #afa27d, #E5E5DC); 
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    
+    border-bottom: 1px solid #afa27d;
+    padding: 20px;
+    background: linear-gradient(to bottom, #E5E5DC, #afa27d);
+
+}
+
+.hero-overlay h2,
+.hero-overlay p {
+    font-family: 'Georgia', serif; 
+    color: #000000;
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.7);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #e68a0a; /* hover effect for navigation links */
+}
+
+/* Hero Section */
+#hero {
+    height: 400px;
+    background-image: url('hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #afa27d;
+    margin: 20px;
+}
+
+/* Grid Layout for Cards */
+#features {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.card {
+    width: 30%;
+    border: 1px solid #999;
+    padding: 15px;
+    background-color: #E5E5DC;
+    text-align: left;
+}
+
+.placeholder-img1 {
+    background-image: url('camera1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 150px;
+    background-color: #E5E5DC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+
+
+.placeholder-img2 {
+    background-image: url('lighting1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 150px;
+    background-color: #E5E5DC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.placeholder-img3 {
+    background-image: url('techniques1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 150px;
+    background-color: #E5E5DC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+/* Call to Action */
+#cta {
+    background-color: #f0f0f0;
+    padding: 40px;
+    text-align: center;
+    margin: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid #333;
+    text-decoration: none;
+    color: #333;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #ccc;
+    font-size: 0.8em;
+}
