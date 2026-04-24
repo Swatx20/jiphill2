@@ -1,27 +1,57 @@
 
+:root {
+    --bg-main: #0a0a0a;
+    --bg-panel: #111111;
+    --bg-card: #161616;
+    --text-main: #efe7df;
+    --text-muted: #b7a89b;
+    --accent: #8f2132;
+    --accent-soft: #c4b4a5;
+    --border: rgba(196, 180, 165, 0.22);
+    --shadow: rgba(0, 0, 0, 0.45);
+}
 
 body {
-    background: linear-gradient(to bottom, #afa27d, #E5E5DC); 
-    color: #333;
-    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(143, 33, 50, 0.16), transparent 30%),
+        linear-gradient(to bottom, #0a0a0a, #131313 42%, #0b0b0b);
+    color: var(--text-main);
+    font-family: Georgia, 'Times New Roman', serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
 header {
-    
-    border-bottom: 1px solid #afa27d;
-    padding: 20px;
-    background: linear-gradient(to bottom, #E5E5DC, #afa27d);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    background: rgba(7, 7, 7, 0.96);
+}
 
+.hero-overlay {
+    max-width: 760px;
+    padding: 32px 40px;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.58));
 }
 
 .hero-overlay h2,
 .hero-overlay p {
-    font-family: 'Georgia', serif; 
-    color: #000000;
-    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.7);
+    color: var(--text-main);
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+}
+
+.hero-overlay h2 {
+    font-size: clamp(2.8rem, 7vw, 5.6rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    margin: 0 0 16px;
+}
+
+.hero-overlay p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 .header-content {
@@ -32,31 +62,46 @@ header {
     margin: auto;
 }
 
-.logo {
-    background-image: url('apaturelogo.png');
-    background-size: contain;
-    background-position: left center;
-    background-repeat: no-repeat;
-    width: 300px;
-    height: 100px;
-    text-indent: -9999px; 
+
+.title-block h1 {
+    color: var(--text-main);
+    font-size: 2.2rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+.title-block p {
+    color: var(--text-muted);
+    letter-spacing: 0.2em;
+    margin: 4px 0 0;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    padding-top: 18px;
 }
 
 nav a {
-    margin-left: 20px;
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
 }
 
 nav a:hover {
-    color: #e68a0a; 
+    color: var(--accent); 
 }
 
 /* Hero Section */
 #hero {
-    height: 400px;
-    background-image: url('hero.jpg');
+    min-height: 74vh;
+    background-image: linear-gradient(rgba(7, 7, 7, 0.38), rgba(7, 7, 7, 0.72)), url('hero.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -64,25 +109,63 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: 2px solid #afa27d;
-    margin: 20px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 0;
 }
 
+
+#intro,
+#features,
+#cta,
+footer {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#intro {
+    padding: 56px 24px 24px;
+}
+
+#intro h3,
+#cta h3 {
+    color: var(--text-main);
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+}
+
+#intro p,
+.card p,
+#cta p,
+footer p {
+    color: var(--text-muted);
+}
 
 #features {
     display: flex;
     justify-content: space-around;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: auto;
+    gap: 24px;
+    padding: 32px 24px 56px;
 }
 
 .card {
     width: 30%;
-    border: 1px solid #999;
+    border: 1px solid var(--border);
     padding: 15px;
-    background-color: #E5E5DC;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.04));
+    box-shadow: 0 18px 40px var(--shadow);
     text-align: left;
+}
+
+.card h4,
+.card h4 a {
+    color: var(--text-main);
+    font-size: 1.15rem;
+    font-weight: 400;
+    text-decoration: none;
 }
 
 .placeholder-img1 {
@@ -91,11 +174,11 @@ nav a:hover {
     background-position: center;
     background-repeat: no-repeat;
     height: 150px;
-    background-color: #E5E5DC;
+    background-color: var(--bg-card);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
     margin-bottom: 10px;
 }
 
@@ -107,11 +190,11 @@ nav a:hover {
     background-position: center;
     background-repeat: no-repeat;
     height: 150px;
-    background-color: #E5E5DC;
+    background-color: var(--bg-card);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
     margin-bottom: 10px;
 }
 
@@ -121,34 +204,75 @@ nav a:hover {
     background-position: center;
     background-repeat: no-repeat;
     height: 150px;
-    background-color: #E5E5DC;
+    background-color: var(--bg-card);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
     margin-bottom: 10px;
 }
 
 #cta {
-    background-color: #f0f0f0;
+    background: linear-gradient(to right, rgba(143, 33, 50, 0.12), rgba(255, 255, 255, 0.03));
+    border: 1px solid var(--border);
+    box-sizing: border-box;
+    width: calc(100% - 48px);
     padding: 40px;
     text-align: center;
-    margin: 20px;
+    margin: 0 auto 48px;
 }
 
 .btn {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #fff;
-    border: 1px solid #333;
+    padding: 12px 28px;
+    background-color: var(--accent);
+    border: 1px solid var(--accent);
     text-decoration: none;
-    color: #333;
+    color: var(--text-main);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--accent-soft);
 }
 
 footer {
     text-align: center;
     padding: 40px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--border);
     font-size: 0.8em;
+}
+
+@media (max-width: 900px) {
+    .header-content,
+    #features {
+        flex-direction: column;
+    }
+
+    .title-block {
+        text-align: center;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    #hero {
+        min-height: 60vh;
+        padding: 24px;
+    }
+
+    .hero-overlay {
+        padding: 24px;
+    }
 }
