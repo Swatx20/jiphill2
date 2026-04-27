@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A cinematic collage of camera angles with technical descriptions.">
+    <title>Camera Angles Collage | Aperture & Angles</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Section Styling */
+        .angle-section {
+            padding: 40px 24px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .section-header {
+            margin-bottom: 24px;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        /* Seamless Collage / Masonry Layout */
+        .collage-container {
+            column-count: 2; /* Fewer columns = larger images */
+            column-gap: 0;   /* Seamless edges */
+            width: 100%;
+        }
+
+        @media (max-width: 900px) {
+            .collage-container { column-count: 1; }
+        }
+
+        .collage-item {
+            position: relative;
+            break-inside: avoid; /* Prevents images from splitting across columns */
+            overflow: hidden;
+            background: var(--bg-card);
+        }
+
+        .collage-item img {
+            width: 100%;
+            display: block;
+            height: auto; /* Keeps natural size/proportions */
+            transition: transform 0.5s ease;
+        }
+
+        /* Click/Hover Description Overlay */
+        .collage-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(143, 33, 50, 0.85); /* Your --accent color */
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        .collage-item:hover .collage-overlay {
+            opacity: 1;
+        }
+
+        .collage-item:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="title-block">
+                <h1>Camera Angles</h1>
+                <p>A Visual Collage of Technique</p>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="angles.html">Camera Angles</a>
+            <a href="lighting.html">Lighting Styles</a>
+            <a href="techniques.html">Iconic Techniques</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="angle-section">
+            <div class="section-header">
+                <h3>Establishing Perspective</h3>
+                <p>Wide and Extreme Wide shots are essential for grounding the audience in the "Technical Magic" of the environment.</p>
+            </div>
+            <div class="collage-container">
+                <div class="collage-item">
+                    <img src="Wideangle.jpg" alt="Wide Angle">
+                    <div class="collage-overlay">
+                        <h4>Wide Angle</h4>
+                        <p>Establishes the dominance or power of a character by looking up at them.</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="fullshot.jpg" alt="Full Shot">
+                    <div class="collage-overlay">
+                        <h4>Full Shot</h4>
+                        <p>Emphasizes the scale of the character within the environment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="angle-section">
+            <div class="section-header">
+                <h3>Character Dynamics</h3>
+                <p>Low and High shots shift the emotional power balance within a scene</p>
+        
+            </div>
+            <div class="collage-container">
+                <div class="collage-item">
+                    <img src="lowangle.jpg" alt="Low Angle">
+                    <div class="collage-overlay">
+                        <h4>Low Angle</h4>
+                        <p>Establishes the dominance or power of a character by looking up at them.</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="highangle.jpg" alt="High Angle">
+                    <div class="collage-overlay">
+                        <h4>High Angle</h4>
+                        <p>Diminishes the power of a character by looking down on them.</p>
+                    </div>
+                </div>
+                <div class="collage-item">
+                    <img src="dutchangle.jpg" alt="Dutch Angle">
+                    <div class="collage-overlay">
+                        <h4>Dutch Angle</h4>
+                        <p>Conveys psychological uneasiness and tension.</p></div>
+                </div>
+                <div class="collage-item">
+                    <img src="closeup.jpg" alt="Close Up">
+                    <div class="collage-overlay">
+                        <h4>Close Up</h4>
+                        <p>Completes the emotional impact by focusing on a character's expressions.</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Aperture & Angles Jaden Phillips SP26</p>
+    </footer>
+
+</body>
+</html>
