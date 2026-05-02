@@ -1,4 +1,133 @@
 
+/* ── Lighting Colors Table ────────────────────────────────── */
+.color-table-section {
+    max-width: 1100px;
+    margin: 56px auto;
+    padding: 0 24px;
+}
+
+.color-effects-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-panel);
+    box-shadow: 0 18px 40px var(--shadow);
+    font-size: 0.95rem;
+}
+
+.color-effects-table caption {
+    caption-side: top;
+    color: var(--text-main);
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    padding-bottom: 16px;
+    text-align: left;
+}
+
+.color-effects-table thead tr {
+    background: var(--accent);
+}
+
+.color-effects-table th {
+    color: var(--text-main);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    padding: 14px 20px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.color-effects-table td {
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 16px 20px;
+    vertical-align: middle;
+}
+
+.color-effects-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.color-effects-table tbody tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+}
+
+.color-effects-table td:first-child {
+    color: var(--text-main);
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.color-effects-table td img {
+    display: block;
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+.color-effects-table a {
+    color: var(--accent-soft);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.color-effects-table a:hover {
+    color: var(--text-main);
+}
+
+/* Zoomable table image cursor */
+.color-effects-table td img.zoomable {
+    cursor: zoom-in;
+    transition: opacity 0.15s;
+}
+.color-effects-table td img.zoomable:hover {
+    opacity: 0.8;
+}
+
+/* Lightbox overlay */
+#lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+#lightbox[hidden] {
+    display: none;
+}
+#lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--border);
+}
+#lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 28px;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 2.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 10px;
+    opacity: 0.7;
+}
+#lightbox-close:hover {
+    opacity: 1;
+}
+
+/* ────────────────────────────────────────────────────────── */
+
+/* Global theme variables used across all pages */
 :root {
     --bg-main: #0a0a0a;
     --bg-panel: #111111;
@@ -8,9 +137,10 @@
     --accent: #8f2132;
     --accent-soft: #c4b4a5;
     --border: rgba(196, 180, 165, 0.22);
-    --shadow: rgba(0, 0, 0, 0.45);
+    --shadow: rgba(0, 0, 0, 0.45); 
 }
 
+/* Base page background, typography, and spacing */
 body {
     background:
         radial-gradient(circle at top left, rgba(143, 33, 50, 0.16), transparent 30%),
@@ -22,24 +152,28 @@ body {
     line-height: 1.6;
 }
 
+/* Top header shell with subtle divider */
 header {
     border-bottom: 1px solid var(--border);
     padding: 20px 32px;
     background: rgba(7, 7, 7, 0.96);
 }
 
+/* Content panel inside the hero image */
 .hero-overlay {
     max-width: 760px;
     padding: 32px 40px;
     background: linear-gradient(to bottom, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.58));
 }
 
+/* Shared hero text readability styles */
 .hero-overlay h2,
 .hero-overlay p {
     color: var(--text-main);
     text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
 }
 
+/* Main hero heading style */
 .hero-overlay h2 {
     font-size: clamp(2.8rem, 7vw, 5.6rem);
     font-weight: 400;
@@ -48,12 +182,14 @@ header {
     margin: 0 0 16px;
 }
 
+/* Hero supporting paragraph style */
 .hero-overlay p {
     color: var(--text-muted);
     font-size: 1.1rem;
     margin: 0;
 }
 
+/* Header layout container for title and nav */
 .header-content {
     display: flex;
     align-items: center;
@@ -63,6 +199,8 @@ header {
 }
 
 
+
+/* Site title styling */
 .title-block h1 {
     color: var(--text-main);
     font-size: 2.2rem;
@@ -71,6 +209,7 @@ header {
     margin: 0;
 }
 
+/* Subtitle/tagline under site title */
 .title-block p {
     color: var(--text-muted);
     letter-spacing: 0.2em;
@@ -78,6 +217,7 @@ header {
     text-transform: uppercase;
 }
 
+/* Main navigation row */
 nav {
     display: flex;
     justify-content: center;
@@ -85,6 +225,7 @@ nav {
     padding-top: 18px;
 }
 
+/* Navigation link appearance */
 nav a {
     text-decoration: none;
     color: var(--text-muted);
@@ -94,11 +235,12 @@ nav a {
     text-transform: uppercase;
 }
 
+/* Navigation hover state */
 nav a:hover {
     color: var(--accent); 
 }
 
-/* Hero Section */
+/* Main hero section with background image and overlay */
 #hero {
     min-height: 74vh;
     background-image: linear-gradient(rgba(7, 7, 7, 0.38), rgba(7, 7, 7, 0.72)), url('hero.jpg');
@@ -115,6 +257,7 @@ nav a:hover {
 }
 
 
+/* Shared max-width wrapper for key content sections */
 #intro,
 #features,
 #cta,
@@ -124,10 +267,12 @@ footer {
     margin-right: auto;
 }
 
+/* Intro section spacing */
 #intro {
     padding: 56px 24px 24px;
 }
 
+/* Section heading style for intro and CTA */
 #intro h3,
 #cta h3 {
     color: var(--text-main);
@@ -137,6 +282,7 @@ footer {
     margin-bottom: 12px;
 }
 
+/* Shared body text color for content blocks */
 #intro p,
 .card p,
 #cta p,
@@ -144,6 +290,7 @@ footer p {
     color: var(--text-muted);
 }
 
+/* Feature cards row layout */
 #features {
     display: flex;
     justify-content: space-around;
@@ -151,23 +298,27 @@ footer p {
     padding: 32px 24px 56px;
 }
 
+/* Feature card visual container */
 .card {
     width: 30%;
     border: 1px solid var(--border);
     padding: 15px;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.04));
     box-shadow: 0 18px 40px var(--shadow);
-    text-align: left;
+    text-align: center;
 }
 
+/* Card title and linked title styling */
 .card h4,
 .card h4 a {
     color: var(--text-main);
     font-size: 1.15rem;
     font-weight: 400;
     text-decoration: none;
+    text-align: center;
 }
 
+/* Camera preview image tile */
 .placeholder-img1 {
     background-image: url('camera1.jpg');
     background-size: cover;
@@ -181,9 +332,7 @@ footer p {
     border: 1px solid var(--border);
     margin-bottom: 10px;
 }
-
-
-
+/* Lighting preview image tile */
 .placeholder-img2 {
     background-image: url('lighting1.jpg');
     background-size: cover;
@@ -198,6 +347,7 @@ footer p {
     margin-bottom: 10px;
 }
 
+/* Techniques preview image tile */
 .placeholder-img3 {
     background-image: url('techniques1.jpg');
     background-size: cover;
@@ -212,6 +362,7 @@ footer p {
     margin-bottom: 10px;
 }
 
+/* Call-to-action banner panel */
 #cta {
     background: linear-gradient(to right, rgba(143, 33, 50, 0.12), rgba(255, 255, 255, 0.03));
     border: 1px solid var(--border);
@@ -222,6 +373,7 @@ footer p {
     margin: 0 auto 48px;
 }
 
+/* Primary button appearance */
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -236,11 +388,13 @@ footer p {
     margin-top: 10px;
 }
 
+/* Primary button hover state */
 .btn:hover {
     background-color: transparent;
     color: var(--accent-soft);
 }
 
+/* Footer alignment and spacing */
 footer {
     text-align: center;
     padding: 40px;
@@ -248,6 +402,126 @@ footer {
     font-size: 0.8em;
 }
 
+/* ── Contact Page ─────────────────────────────────────────── */
+
+/* Two-column layout: form + aside */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 48px;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Form field stack */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 22px;
+}
+
+/* Field labels */
+.form-group label {
+    color: var(--text-main);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* Shared input / select / textarea appearance */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-soft);
+}
+
+.contact-form select option {
+    background: var(--bg-card);
+    color: var(--text-main);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Submit button — inherits .btn, add top spacing */
+.contact-form .btn {
+    margin-top: 8px;
+}
+
+/* Sidebar panel */
+.contact-aside {
+    border: 1px solid var(--border);
+    background: var(--bg-panel);
+    padding: 28px 24px;
+}
+
+.contact-aside h3 {
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+}
+
+.contact-aside p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin: 0 0 12px;
+}
+
+.contact-aside a {
+    color: var(--accent-soft);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    word-break: break-word;
+}
+
+.contact-aside a:hover {
+    color: var(--text-main);
+}
+
+.contact-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0;
+}
+
+/* Stack contact layout on smaller screens */
+@media (max-width: 860px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ────────────────────────────────────────────────────────── */
+
+/* Tablet/mobile adjustments for header, cards, nav, and hero */
 @media (max-width: 900px) {
     .header-content,
     #features {
@@ -276,18 +550,21 @@ footer {
         padding: 24px;
     }
 }
+/* Lighting page section wrapper */
  .lighting-section {
             padding: 40px 24px;
             max-width: 1200px;
             margin: auto;
         }
 
+        /* Reusable heading block with accent bar */
         .section-header {
             margin-bottom: 20px;
             border-left: 4px solid var(--accent);
             padding-left: 15px;
         }
 
+        /* Lighting section title hierarchy */
         .section-header h2,
         .section-header h3 {
             margin: 0 0 8px;
@@ -295,14 +572,16 @@ footer {
             letter-spacing: 0.04em;
         }
 
+        /* Lighting section intro text */
         .section-header p {
             margin: 0;
             color: var(--text-muted);
         }
 
+        /* Before/after compare frame */
         .lighting-compare {
             position: relative;
-            width: 100%;
+            width: 75%;
             max-width: 1100px;
             margin: 24px auto 16px;
             border: 1px solid var(--border);
@@ -311,6 +590,7 @@ footer {
             aspect-ratio: 16 / 9;
         }
 
+        /* Shared image fit behavior inside compare frame */
         .lighting-compare img {
             position: absolute;
             inset: 0;
@@ -321,10 +601,12 @@ footer {
             -webkit-user-drag: none;
         }
 
+        /* Darkened base image layer */
         .lighting-compare .base-image {
             filter: brightness(0.35) contrast(1.05);
         }
 
+        /* Reveal window showing adjusted image portion */
         .lighting-compare .reveal-wrap {
             position: absolute;
             inset: 0;
@@ -333,6 +615,7 @@ footer {
             border-right: 2px solid rgba(239, 231, 223, 0.9);
         }
 
+        /* Visual divider at the reveal boundary */
         .lighting-compare .divider {
             position: absolute;
             top: 0;
@@ -345,6 +628,7 @@ footer {
             pointer-events: none;
         }
 
+        /* Labels above compare slider */
         .compare-labels {
             display: flex;
             justify-content: space-between;
@@ -356,6 +640,7 @@ footer {
             color: var(--text-muted);
         }
 
+        /* Slider control container */
         .compare-control {
             max-width: 1100px;
             margin: 0 auto;
@@ -363,6 +648,7 @@ footer {
             gap: 8px;
         }
 
+        /* Slider field label style */
         .compare-control label {
             color: var(--text-main);
             font-size: 0.82rem;
@@ -370,12 +656,14 @@ footer {
             text-transform: uppercase;
         }
 
+        /* Compare range slider style */
         .compare-control input[type="range"] {
             width: 100%;
             accent-color: var(--accent);
             cursor: ew-resize;
         }
 
+        /* Lighting notes grid below compare tool */
         .lighting-notes {
             margin-top: 28px;
             display: grid;
@@ -383,23 +671,27 @@ footer {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
+        /* Individual note card shell */
         .note-card {
             border: 1px solid var(--border);
             background: rgba(255, 255, 255, 0.02);
             padding: 16px;
         }
 
+        /* Note card heading style */
         .note-card h4 {
             margin: 0 0 6px;
             font-weight: 400;
             color: var(--text-main);
         }
 
+        /* Note card body text */
         .note-card p {
             margin: 0;
             color: var(--text-muted);
         }
 
+        /* Mobile adjustments for lighting section and compare labels */
         @media (max-width: 768px) {
             .lighting-section {
                 padding: 32px 16px;
@@ -415,30 +707,53 @@ footer {
             }
         }
 
-        
+        /* Techniques page: video demo wrapper */
+        .technique-video-wrap {
+            max-width: 860px;
+            margin: 0 auto 40px;
+        }
+
+        .technique-video-wrap video {
+            width: 100%;
+            display: block;
+            border: 1px solid var(--border);
+            background: #050505;
+        }
+
+        .technique-video-caption {
+            margin: 14px 0 0;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        /* Aperture/angles page section wrapper */
         .angle-section {
             padding: 40px 24px;
             max-width: 1400px;
             margin: auto;
         }
 
+        /* Reused section header for angle content */
         .section-header {
             margin-bottom: 24px;
             border-left: 4px solid var(--accent);
             padding-left: 15px;
         }
 
-        /* Seamless Collage / Masonry Layout */
+        /* Masonry-style collage column container */
         .collage-container {
             column-count: 2; /* Fewer columns = larger images */
             column-gap: 0;   /* Seamless edges */
             width: 100%;
         }
 
+        /* Collapse to one collage column on smaller screens */
         @media (max-width: 900px) {
             .collage-container { column-count: 1; }
         }
 
+        /* Individual collage tile wrapper */
         .collage-item {
             position: relative;
             break-inside: avoid; /* Prevents images from splitting across columns */
@@ -446,6 +761,7 @@ footer {
             background: var(--bg-card);
         }
 
+        /* Collage image sizing and zoom transition */
         .collage-item img {
             width: 100%;
             display: block;
@@ -453,13 +769,14 @@ footer {
             transition: transform 0.5s ease;
         }
 
-        /* hover display*/
+        /* Overlay content shown on image hover */
         .collage-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            box-sizing: border-box;
             background: rgba(143, 33, 50, 0.85); 
             color: var(--text-main);
             display: flex;
@@ -469,14 +786,17 @@ footer {
             opacity: 0;
             transition: opacity 0.3s ease;
             text-align: center;
-            padding: 15px;
+            padding: 20px;
             cursor: pointer;
+            overflow-y: auto;
         }
 
+        /* Reveal overlay when tile is hovered */
         .collage-item:hover .collage-overlay {
             opacity: 1;
         }
 
+        /* Slight zoom-in effect when tile is hovered */
         .collage-item:hover img {
             transform: scale(1.05);
         }

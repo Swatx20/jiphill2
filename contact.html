@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit your favorite film clips for the Aperture & Angles weekly rotation — a library of complex cinematic methods.">
+    <meta name="author" content="Jaden Phillips">
+    <title>Contact & Submit | Aperture & Angles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="title-block">
+                <h1>Contact & Submit</h1>
+                <p>Contribute to the Encyclopedia</p>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="angles.html">Camera Angles</a>
+            <a href="lighting.html">Lighting Styles</a>
+            <a href="techniques.html">Iconic Techniques</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="lighting-section">
+            <div class="section-header">
+                <h2>Submit a Clip for the Weekly Rotation</h2>
+                <p>Know a scene that perfectly demonstrates a cinematic technique? Fill out the form below and we may feature it in our weekly showcase.</p>
+            </div>
+
+            <div class="contact-layout">
+
+                <form class="contact-form" action="#" method="post">
+
+                    <div class="form-group">
+                        <label for="viewer-name">Viewer Name</label>
+                        <input type="text" id="viewer-name" name="viewer_name" placeholder="e.g. Will Smith" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="film-title">Film Title &amp; Director</label>
+                        <input type="text" id="film-title" name="film_title" placeholder="e.g. The Dark Knight — Christopher Nolan" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="technique">Cinematic Technique</label>
+                        <select id="technique" name="technique" required>
+                            <option value="" disabled selected>Select a technique&hellip;</option>
+                            <option value="dolly-zoom">Dolly Zoom</option>
+                            <option value="long-take">Long Take</option>
+                            <option value="slow-motion">Slow Motion (Overcranking)</option>
+                            <option value="low-angle">Low Angle</option>
+                            <option value="high-angle">High Angle</option>
+                            <option value="dutch-angle">Dutch Angle</option>
+                            <option value="close-up">Close Up</option>
+                            <option value="wide-angle">Wide Angle</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clip-description">Clip Description &amp; Timestamp</label>
+                        <textarea id="clip-description" name="clip_description" rows="5" placeholder="Briefly describe the scene and include the timestamp where the technique occurs (e.g., 1:24:08 — the camera pulls back as Bruce Wayne looks down the stairwell)." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Submit Clip</button>
+
+                </form>
+
+                <aside class="contact-aside">
+                    <h3>Other Ways to Reach Us</h3>
+                    <p>Have a question or want to collaborate? Reach out directly:</p>
+                    <p>
+                        <a href="mailto:jiphill2@asu.edu">jiphill2@asu.edu</a>
+                    </p>
+                    <hr class="contact-divider">
+                    <h3>Additional Resources</h3>
+                    <p>Deepen your knowledge of cinematic language with professional resources:</p>
+                    <p>
+                        <a href="https://www.studiobinder.com/blog/ultimate-guide-to-camera-shots/" target="_blank" rel="noopener noreferrer">StudioBinder Ultimate Guide to Camera Shots</a>
+                    </p>
+                </aside>
+ 
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="angles.html">Camera Angles</a>
+            <a href="lighting.html">Lighting Styles</a>
+            <a href="techniques.html">Iconic Techniques</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <p>Aperture & Angles Jaden Phillips SP26</p>
+    </footer>
+
+</body>
+</html>

@@ -62,7 +62,52 @@
                 </article>
             </div>
         </section>
+        <section class="color-table-section">
+            <table class="color-effects-table">
+                <caption>Emotional Effect of Lighting Colors</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Color</th>
+                        <th scope="col">Example Image</th>
+                        <th scope="col">Emotional Effect</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Blue/Cyan</td>
+                        <td><img src="bluelighting.jpg" alt="Example image for Blue/Cyan lighting"></td>
+                        <td>Often represents isolation, sadness, or coldness. It is frequently used for night time scenes, creating a sense of calm or.</td>
+                    </tr>
+                    <tr>
+                        <td>Red</td>
+                        <td><img src="redlighting.jpg" alt="Example image for Red lighting"></td>
+                        <td>Signifies high-intensity emotions, including aggression, danger, passion, rage, and love. It is often used to make the viewer feel uneasy or to highlight intense moments.</td>
+                    </tr>
+                    <tr>
+                        <td>Green</td>
+                        <td><img src="greenlighting.jpg" alt="Example image for Green lighting"></td>
+                        <td>Suggests nature, sickness, fear, corruption, or a surreal, unsettling, or dangerous atmosphere.</td>
+                    </tr>
+                    <tr>
+                        <td>Orange</td>
+                        <td><img src="orangelighting.jpg" alt="Example image for Orange lighting"></td>
+                        <td>Used to express warmth, energy, and enthusiasm, often creating a sense of excitement or urgency.</td>
+                    </tr>
+                    <tr>
+                        <td>Pink/Magenta</td>
+                        <td><img src="pinklighting.jpg" alt="Example image for Pink/Magenta lighting"></td>
+                        <td>Often used to evoke innocence, femininity, or a dreamy, romantic atmosphere.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
+
+
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>
+        <button id="lightbox-close" aria-label="Close">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+    </div>
 
     <footer>
         <p>Aperture & Angles Jaden Phillips SP26</p>
@@ -84,6 +129,33 @@
         });
 
         setReveal(slider.value);
+
+        // Lightbox
+        const lightbox    = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn    = document.getElementById('lightbox-close');
+
+        document.querySelectorAll('.color-effects-table td img').forEach(img => {
+            if (!img.src || img.src === window.location.href) return;
+            img.classList.add('zoomable');
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.hidden = false;
+                document.body.style.overflow = 'hidden';
+                closeBtn.focus();
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.hidden = true;
+            lightboxImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lightbox.hidden) closeLightbox(); });
     </script>
 </body>
 </html>
